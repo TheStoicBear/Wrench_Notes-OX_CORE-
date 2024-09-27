@@ -13,7 +13,7 @@
         usetime = 1000, -- Optional delay for opening the note
         use = function()
             -- Open the note UI when the item is used
-            exports['your_resource_name']:OpenNoteUI()
+            exports['Wrench_Notes']:OpenNoteUI()
         end
     }
 }
