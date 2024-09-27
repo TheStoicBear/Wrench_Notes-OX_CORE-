@@ -2,7 +2,8 @@ local isMenuVisible = false
 local noteProps = {}
 
 -- Command to show the note input UI
-RegisterCommand('note', function()
+-- Function to show the note input UI
+function OpenNoteUI()
     if not isMenuVisible then
         isMenuVisible = true
         SetNuiFocus(true, true) -- Set focus on NUI
@@ -10,7 +11,16 @@ RegisterCommand('note', function()
             action = 'showMenu' -- Show input menu
         })
     end
+end
+
+-- Command to trigger the note UI (if needed for in-game use)
+RegisterCommand('note', function()
+    OpenNoteUI()
 end, false)
+
+-- Export the function so it can be used by other scripts/resources
+exports('OpenNoteUI', OpenNoteUI)
+
 
 -- Handle note submission from NUI
 RegisterNUICallback('submitNote', function(data, cb)
